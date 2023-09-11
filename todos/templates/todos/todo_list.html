@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block  content %}
+<div class="p-4 sm:ml-64">
+   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+       <table class="table w-full text-sm text-left text-gray-500 dark:text-gray-400">
+           {% if todo_list %}
+           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+               <tr>
+                   <th scope="col" class="px-6 py-3">
+                       #
+                   </th>
+                   <th scope="col" class="px-6 py-3">
+                       Título
+                   </th>
+                   <th scope="col" class="px-6 py-3">
+                       Criado em
+                   </th>
+                   <th scope="col" class="px-6 py-3">
+                       Data de entrega
+                   </th>
+                   <th scope="col" class="px-6 py-3">
+                       Finalizado em
+                   </th>
+                   <th scope="col" class="px-6 py-3">
+                       Ações
+                   </th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for todo in todo_list %}
+               <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                   <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                       {{todo.titulo}}
+                   </th>
+                   <td class="px-6 py-4">
+                       {{todo.created_at}}
+                   </td>
+                   <td class="px-6 py-4">
+                       {{todo.deadline}}
+                   </td>
+                   <td class="px-6 py-4">
+                       {{todo.finished_at}}
+                   </td>
+                   <td class="px-6 py-4">
+                       <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                   </td>
+               </tr>
+               {% endfor %}
+               
+           </tbody>
+       </table>
+       {% else %}
+           <p>Não tem registro </p>
+       {% endif %}
+   </div>
+   
+    </div>
+   {% endblock %}
+
+ 
