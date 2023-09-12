@@ -14,3 +14,7 @@ class Todo(models.Model):
         verbose_name=" data de inicio ", null=False, blank=False
     )
     finished_at = models.DateTimeField(verbose_name="data de conclusão", null=True)
+        ##configuracao para modelos
+
+    class Meta:
+        ordering = ["deadline"]

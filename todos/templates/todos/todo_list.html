@@ -20,10 +20,14 @@
                        Data de entrega
                    </th>
                    <th scope="col" class="px-6 py-3">
-                       Finalizado em
+                       Exluir
                    </th>
+                   
                    <th scope="col" class="px-6 py-3">
-                       Ações
+                    Update
+                </th>
+                   <th scope="col" class="px-6 py-3">
+                       Concluir
                    </th>
                </tr>
            </thead>
@@ -43,8 +47,15 @@
                        {{todo.finished_at}}
                    </td>
                    <td class="px-6 py-4">
-                       <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                       <a href="{% url 'delete' todo.pk %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Excluir</a>
                    </td>
+                   <td class="px-6 py-4 {% if todo.finished_at %}disabled{% endif %}">
+                    <a href="{% url 'update' todo.pk  %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Update</a>
+                   
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="{% url 'complete' todo.pk %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Concluir</a>
+                    </td>
                </tr>
                {% endfor %}
                
